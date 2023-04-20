@@ -1,0 +1,141 @@
+// PARCIAL FINAL 
+// LEYDI YESSENIA GARZON MONTERO 
+// CAMADA 7
+
+
+// EJERCICIO NUMERO 1 
+
+
+let cuadros = [
+    {
+        nombre : "Mona Lisa",
+        creador : "Leonardo Da Vinci",
+        creacion : 1503
+    },
+    {
+        nombre : "La ultima cena",
+        creador : "Leonardo Da Vinci",
+        creacion : 1495
+    },
+    {
+        nombre : "La noche estrellada",
+        creador : "Vincent van Gogh",
+        creacion : 1889
+    },
+    {
+        nombre : "El grito",
+        creador : "Edvard Munch",
+        creacion : 1893
+    },
+    {
+        nombre : "Trigal con cuervos",
+        creador : "Vincent van Gogh",
+        creacion : 1890
+    },
+    {
+        nombre : "Maria Magdalena",
+        creador : "Leonardo Da Vinci",
+        creacion : 1495
+    }
+]
+
+function filtarCuadros (array){
+    let nuevoArray = [];
+    for (let i = 0; i < array.length;i++){
+        if (array[i].creacion > 1800){
+            nuevoArray.push(array[i]);
+        }
+    }
+    return nuevoArray;
+}
+
+let cuadrosfiltrados = filtarCuadros(cuadros);
+console.log(cuadrosfiltrados);
+
+
+
+
+// EJERCICIO NUMERO 2 
+
+
+
+function ordenarCuadros ( array, orden ){
+
+  
+    let aux
+
+    for( let i = 0 ; i < array.length; i++){
+
+        for(let j = 0; j < array.length - 1; j++){
+           
+            if( array[j].creacion > array[j + 1].creacion && (orden === 'ASD' || orden === 'asd')){
+
+                aux = array[j] 
+                array[j] = array[j + 1] 
+                array[j + 1] = aux 
+
+            }
+            else if( array[j].creacion < array[j + 1].creacion && (orden === 'DESC' || orden === 'desc')){
+                aux = array[j] 
+                array[j] = array[j + 1] 
+                array[j + 1] = aux 
+            }
+
+        }   
+
+    }
+    return array;
+
+}
+let cuadrosOrdenados= ordenarCuadros(cuadros,'desc')
+console.log(cuadrosOrdenados);
+
+
+// EJERCICIO NUMERO 3
+
+let matriz = [
+    [1,2,3,4,5],
+    [6,7,8,9,10],
+    [11,12,13,14,15]
+]
+ 
+// a)
+
+function sumaMatrix (matri){
+    let sumatoria = 0;
+    for (let i = 0; i < matri[1].length; i++) {
+        sumatoria += matri[1][i];
+        
+    }
+    return sumatoria;
+}
+
+let sumaDeLaFila = sumaMatrix(matriz)
+console.log(sumaDeLaFila);
+
+
+// b)
+
+function paresMatrix(matri) {
+
+    let nuevoArray = [];
+
+    for (let i = 0; i < matri.length; i++) {
+        for (let j = 0; j < matri[i].length; j++) {
+            if (matri[i][j] % 2 ===0) {
+
+                nuevoArray.push(matri[i][j]);
+                
+            }
+            
+        }
+        
+    }
+
+    return nuevoArray;
+    
+}
+
+let paresDeLaMatriz =paresMatrix(matriz);    
+console.log(paresDeLaMatriz);
+
